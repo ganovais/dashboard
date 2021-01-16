@@ -1,5 +1,9 @@
 # Aula Dashboard
 
+## Plugins
+    - FontAwesome - https://fontawesome.com/icons?d=gallery
+    - BootStrap - https://getbootstrap.com/
+
 ## Link do Git  
     - https://git-scm.com/downloads
 
