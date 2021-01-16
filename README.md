@@ -16,3 +16,6 @@
     - git add -A
     - git commit -m "sua mensagem"
     - git push (envia por completo)
+
+## 5 GitHub Pages
+    - Para colocar seu site no ar(online para todos)
