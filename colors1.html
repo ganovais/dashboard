@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+</head>
+<body>
+    <h1 id="title">Hello World!</h1>
+    <button class="click">green</button> 
+    <button class="click">blue</button> 
+    <button class="click">red</button>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let h1 = document.querySelector("#title");
+            let buttons = document.querySelectorAll('.click');
+
+           buttons.forEach(button => {
+               button.onclick = () => {
+                   h1.style.color = button.innerHTML;
+               }
+           }) 
+        })
+    </script>
+    
+</body>
+</html>
