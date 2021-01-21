@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="div1">
+        <h1>Minha primeira tela</h1>
+    </div>
+
+    <div class="div2 hide">
+        <h1>Minha segunda tela</h1>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let times = 0;
+            let div1 = document.querySelector('.div1');
+            let div2 = document.querySelector('.div2');
+
+            const interval = setInterval(() => {
+                if(div1.classList.contains('hide')) {
+                    div1.classList.remove('hide');
+                    div2.classList.add('hide');
+                } else {
+                    div1.classList.add('hide');
+                    div2.classList.remove('hide');
+                }
+                times++;
+
+                if(times == 5) {
+                    clearInterval(interval);
+                }
+                console.log(times);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
