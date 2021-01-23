@@ -23,3 +23,40 @@
 
 ## 5 GitHub Pages
     - Para colocar seu site no ar(online para todos)
+
+
+## Criando API com JS
+    - yarn init -y
+    - yarn add express
+    - yarn add typescript -D
+    - yarn tsc --init (cria o tsconfig.json)
+        - outDir: ./dist
+        - rootDir: ./src
+    - yarn tcs (builda o código ts para a pasta dist)
+        - node dist/server.js
+    - yarn add @types/express -D
+    Inside file package.json
+        - "scripts": {
+            "build": "tsc"
+        }
+
+    - yarn add tsc-node-dev -D
+    Inside file package.json
+        - "scripts": {
+            "build": "tsc",
+            "dev:server": "tsc-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+        }
+    - yarn dev:server
+    - yarn add uuidv4;
+
+server.ts
+import express from express;
+
+const api = express();
+
+api.get('/', (request, response) => {
+    return response.json({ message: "Hello World!" })
+})
+api.listen(3333, () => {
+    console.log('🚀 Server started on port 3333!')
+});
