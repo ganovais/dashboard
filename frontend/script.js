@@ -72,8 +72,6 @@ function deleteBlog() {
     })
 }
 
-let isUpdating = false;
-
 function updateBlog() {
     let updates = document.querySelectorAll('.update');
     updates.forEach(item => {
@@ -87,15 +85,12 @@ function updateBlog() {
                 document.querySelector('#title').value = response.data.blog.title;
                 document.querySelector('#body').value = response.data.blog.body;
                 document.querySelector('#blog_id').value = response.data.blog.id;
-
-                isUpdating = true;
             }
         }
     })
 }
 document.addEventListener('DOMContentLoaded', async function() {
     const { data: blogs } = await api.get('/blogs');
-
     const html = await getHTML(blogs);
     const blogs_html = document.querySelector('#blogs');
     blogs_html.innerHTML = html;
@@ -104,28 +99,25 @@ document.addEventListener('DOMContentLoaded', async function() {
     deleteBlog();
     updateBlog();
 
-
     let form = null;
     document.querySelector('#create').onclick = () => {
         form = document.querySelector('#form');
         form.parentElement.parentElement.classList.remove('d-none');
-        
-        form.onsubmit = (e) => {
-            e.preventDefault()
-            const blog_id = document.querySelector('#blog_id').value;
-            if(!blog_id) {
-                api.post('/blogs', {
-                    title: document.querySelector('#title').value,
-                    body: document.querySelector('#body').value,
-                })
-            } else {
-                api.put('/blogs/' + blog_id, {
-                    title: document.querySelector('#title').value,
-                    body: document.querySelector('#body').value,
-                })
-            }
+    };
 
-            return false;
+    document.querySelector('#form').onsubmit = async (e) => {
+        // e.preventDefault()
+        const blog_id = document.querySelector('#blog_id').value;
+        if(!blog_id) {
+            const response = await api.post('/blogs', {
+                title: document.querySelector('#title').value,
+                body: document.querySelector('#body').value,
+            })
+        } else {
+            const response = await api.put('/blogs/' + blog_id, {
+                title: document.querySelector('#title').value,
+                body: document.querySelector('#body').value,
+            })
         }
     }
 
