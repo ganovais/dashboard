@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <style>
+        .cp {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-5"> 
+        <h1 class="text-center">Blogs</h1>
+        <button class="btn btn-primary btn-block mb-3" id="create">Cadastrar blog</button>
+
+        <div class="row d-none mb-4">
+            <div class="col-12">
+                <form id="form" method="POST">
+                    <input type="hidden" id="blog_id">
+                    <div class="form-group">
+                        <label>Título</label>
+                        <input class="form-control" name="title" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição</label>
+                        <textarea class="form-control" name="body" id="body" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        <p id="loading" class="d-none">Carregando...</p>
+        <div class="row d-none mb-4">
+            <div class="col-12" id="blog"></div>
+        </div>
+
+        <div class="row" id="blogs">
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
