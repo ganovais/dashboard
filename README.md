@@ -49,14 +49,14 @@
     - yarn dev:server
     - yarn add uuidv4;
 
-server.ts
-import express from express;
+## File: server.ts
+import express from express;   
 
-const api = express();
+const api = express();  
 
-api.get('/', (request, response) => {
-    return response.json({ message: "Hello World!" })
-})
-api.listen(3333, () => {
-    console.log('🚀 Server started on port 3333!')
-});
+api.get('/', (request, response) => {  
+    return response.json({ message: "Hello World!" })  
+})  
+api.listen(3333, () => {  
+    console.log('🚀 Server started on port 3333!')  
+});  
