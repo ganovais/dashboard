@@ -44,7 +44,7 @@
     Inside file package.json
         - "scripts": {
             "build": "tsc",
-            "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+            "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
         }
     - yarn dev:server
     - yarn add uuidv4;
