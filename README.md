@@ -40,11 +40,11 @@
             "build": "tsc"
         }
 
-    - yarn add tsc-node-dev -D
+    - yarn add ts-node-dev -D
     Inside file package.json
         - "scripts": {
             "build": "tsc",
-            "dev:server": "tsc-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+            "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
         }
     - yarn dev:server
     - yarn add uuidv4;
